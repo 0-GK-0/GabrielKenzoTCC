@@ -123,11 +123,11 @@ public class Atks : MonoBehaviour
         currentCooldown = cooldownRanged;
     }
 
-    private void SelfDmg(selfDmg){
+    private void SelfDmg(int selfDmg){
         health - selfDmg;
     }
     
-    public void Dmg(dmg){
+    public void Dmg(int dmg){
         health - dmg;
     }
 }
