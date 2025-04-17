@@ -13,7 +13,7 @@ public class PlayerMov : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    bool readyToJump = true;
 
     [Header("References")]
     public Transform orientation;
@@ -28,7 +28,6 @@ public class PlayerMov : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     private void Start(){
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
     }
     private void MyInput(){
         horizontalInput = Input.GetAxisRaw("Horizontal");

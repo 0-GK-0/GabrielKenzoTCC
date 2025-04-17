@@ -13,6 +13,7 @@ public class Atks : MonoBehaviour
     private float damageToReceive;
     private int damageReceived;
     public Transform atkPoint;
+    public Transform projCreationPoint;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -39,16 +40,19 @@ public class Atks : MonoBehaviour
     public int hpLoss4;
     public float cooldown4;
     public KeyCode attack4;
+    public GameObject projectile4;
 
     [Header("Attack5 - Range")]
     public int hpLoss5;
     public float cooldown5;
     public KeyCode attack5;
+    public GameObject projectile5;
 
     [Header("Attack6 - Range")]
     public int hpLoss6;
     public float cooldown6;
     public KeyCode attack6;
+    public GameObject projectile6;
 
     private void Start(){
         health = maxHealth;
@@ -103,7 +107,7 @@ public class Atks : MonoBehaviour
         {
             enemy.GetComponent<Atks>().Dmg(atkDmg);
         }
-        DamagePercentage(hpLoss);
+        if(health>1)DamagePercentage(hpLoss);
         currentCooldown = cooldown;
     }
 
@@ -122,20 +126,29 @@ public class Atks : MonoBehaviour
             AtkType.six => cooldown6,
             _ => 0f
         };
+        GameObject projectile = type switch
+        {
+            AtkType.four => projectile4,
+            AtkType.five => projectile5,
+            AtkType.six => projectile6,
+            _ => null
+        };
 
-        DamagePercentage(hpLossRanged);
+        if(health>1)DamagePercentage(hpLossRanged);
+        CreateProjectile(projectile);
         currentCooldown = cooldownRanged;
     }
-    private void DamagePercentage(float damagePercentage){
-        damageToReceive = damagePercentage/100 * health;
+    public void DamagePercentage(float damagePercentage){
+        damageToReceive = Mathf.Ceil(damagePercentage/100 * health);
         damageReceived = (int)damageToReceive;
-        SelfDmg(damageReceived);
-    }
-    private void SelfDmg(int selfDmg){
-        health -= selfDmg;
+        Dmg(damageReceived);
+        Debug.Log(health);
     }
     
     public void Dmg(int dmg){
         health -= dmg;
+    }
+    private void CreateProjectile(GameObject projectilee){
+        Instantiate(projectilee, projCreationPoint.position, projCreationPoint.rotation);
     }
 }
