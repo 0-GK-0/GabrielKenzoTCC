@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AtkType { one, two, three, four, five, six }
 public class Atks : MonoBehaviour
 {
     [Header("Values")]
@@ -9,6 +10,9 @@ public class Atks : MonoBehaviour
     public int maxHealth;
     public float currentCooldown;
     public LayerMask canHit;
+    private float damageToReceive;
+    private int damageReceived;
+    public Transform atkPoint;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -51,7 +55,7 @@ public class Atks : MonoBehaviour
     }
     private void Update(){
         GetAttack();
-        if(currentCooldown > 0) currentCooldown - Time.deltaTime;
+        if(currentCooldown > 0) currentCooldown -= Time.deltaTime;
     }
 
     private void GetAttack(){
@@ -65,12 +69,12 @@ public class Atks : MonoBehaviour
     }
 
     private void MeleeAttack(AtkType type){
-        float atkDmg = type switch
+        int atkDmg = type switch
         {
             AtkType.one => dmg1,
             AtkType.two => dmg2,
             AtkType.three => dmg3,
-            _ => 0f
+            _ => 0
         };
         float range = type switch
         {
@@ -94,12 +98,12 @@ public class Atks : MonoBehaviour
             _ => 0f
         };
 
-        Collider[] hit = Physics.OverlapSphere(range, range, canHit);
+        Collider[] hit = Physics.OverlapSphere(atkPoint.position, range, canHit);
         foreach (Collider enemy in hit)
         {
             enemy.GetComponent<Atks>().Dmg(atkDmg);
         }
-        SelfDmg(hpLoss);
+        DamagePercentage(hpLoss);
         currentCooldown = cooldown;
     }
 
@@ -119,15 +123,19 @@ public class Atks : MonoBehaviour
             _ => 0f
         };
 
-        SelfDmg(hpLossRanged);
+        DamagePercentage(hpLossRanged);
         currentCooldown = cooldownRanged;
     }
-
+    private void DamagePercentage(float damagePercentage){
+        damageToReceive = damagePercentage/100 * health;
+        damageReceived = (int)damageToReceive;
+        SelfDmg(damageReceived);
+    }
     private void SelfDmg(int selfDmg){
-        health - selfDmg;
+        health -= selfDmg;
     }
     
     public void Dmg(int dmg){
-        health - dmg;
+        health -= dmg;
     }
 }
