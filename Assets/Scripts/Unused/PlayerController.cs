@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public string playerPrefix;
+    /*public string playerPrefix;
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
     private Rigidbody rb;
@@ -44,5 +44,5 @@ public class PlayerController : MonoBehaviour
             GetComponent<Attack>().ExecuteAttack(AttackType.Medium);
         if (Input.GetButtonDown(playerPrefix + "_Attack3"))
             GetComponent<Attack>().ExecuteAttack(AttackType.Special);
-    }
+    }*/
 }

@@ -4,7 +4,7 @@ public enum AttackType { Light, Medium, Special }
 
 public class Attack : MonoBehaviour
 {
-    public Transform attackPoint;
+    /*public Transform attackPoint;
     public float attackRange = 1.0f;
     public LayerMask enemyLayers;
 
@@ -43,5 +43,5 @@ public class Attack : MonoBehaviour
     {
         if (attackPoint != null)
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+    }*/
 }

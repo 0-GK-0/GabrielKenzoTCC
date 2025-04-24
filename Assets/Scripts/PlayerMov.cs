@@ -28,6 +28,7 @@ public class PlayerMov : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     private void Start(){
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
     private void MyInput(){
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -44,10 +45,7 @@ public class PlayerMov : MonoBehaviour
         
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        if(grounded)
-            rb.drag = groundDrag;
-        else
-            rb.drag = 0;
+        rb.drag = groundDrag;
     }
     private void FixedUpdate()
     {
@@ -56,7 +54,7 @@ public class PlayerMov : MonoBehaviour
     private void MovePlayer(){
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        if(grounded)rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        if(grounded) rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if(!grounded) rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
     private void SpeedControl(){

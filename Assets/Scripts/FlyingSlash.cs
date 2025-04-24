@@ -6,13 +6,18 @@ public class FlyingSlash : MonoBehaviour
 {
     [Header("Values")]
     public float speed;
+    public Rigidbody rb;
     public int dmg;
-    Transform self;
+    GameObject self;
     
     private void Start(){
-        self = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
+        rb.velocity = transform.forward * speed;
     }
-    private void Update(){
-        self.position += Vector3.forward * speed * Time.deltaTime;
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player")||other.gameObject.CompareTag("Background")){
+            Destroy(self);
+        }
     }
 }

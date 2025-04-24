@@ -14,6 +14,8 @@ public class Atks : MonoBehaviour
     private int damageReceived;
     public Transform atkPoint;
     public Transform projCreationPoint;
+    public Transform orientation;
+    public Transform player;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -149,6 +151,6 @@ public class Atks : MonoBehaviour
         health -= dmg;
     }
     private void CreateProjectile(GameObject projectilee){
-        Instantiate(projectilee, projCreationPoint.position, projCreationPoint.rotation);
+        Instantiate(projectilee, projCreationPoint.position, orientation.rotation);
     }
 }
