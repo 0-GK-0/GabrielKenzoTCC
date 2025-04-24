@@ -14,6 +14,7 @@ public class PlayerMov : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump = true;
+    public bool speedControl;
 
     [Header("References")]
     public Transform orientation;
@@ -50,6 +51,7 @@ public class PlayerMov : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        if(speedControl) SpeedControl();
     }
     private void MovePlayer(){
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;

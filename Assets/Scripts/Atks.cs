@@ -31,12 +31,7 @@ public class Atks : MonoBehaviour
     public float cooldown2;
     public KeyCode attack2;
 
-    [Header("Attack3 - Melee")]
-    public int dmg3;
-    public int range3;
-    public int hpLoss3;
-    public float cooldown3;
-    public KeyCode attack3;
+    //Attack 3 is in a separate script
 
     [Header("Attack4 - Range")]
     public int hpLoss4;
@@ -68,7 +63,6 @@ public class Atks : MonoBehaviour
         if(currentCooldown > 0) return;
         if(Input.GetKeyDown(attack1)) MeleeAttack(AtkType.one);
         if(Input.GetKeyDown(attack2)) MeleeAttack(AtkType.two);
-        if(Input.GetKeyDown(attack3)) MeleeAttack(AtkType.three);
         if(Input.GetKeyDown(attack4)) RangedAtk(AtkType.four);
         if(Input.GetKeyDown(attack5)) RangedAtk(AtkType.five);
         if(Input.GetKeyDown(attack6)) RangedAtk(AtkType.six);
@@ -79,28 +73,24 @@ public class Atks : MonoBehaviour
         {
             AtkType.one => dmg1,
             AtkType.two => dmg2,
-            AtkType.three => dmg3,
             _ => 0
         };
         float range = type switch
         {
             AtkType.one => range1,
             AtkType.two => range2,
-            AtkType.three => range3,
             _ => 0f
         };
         float hpLoss = type switch
         {
             AtkType.one => hpLoss1,
             AtkType.two => hpLoss2,
-            AtkType.three => hpLoss3,
             _ => 0f
         };
         float cooldown = type switch
         {
             AtkType.one => cooldown1,
             AtkType.two => cooldown2,
-            AtkType.three => cooldown3,
             _ => 0f
         };
 
@@ -151,6 +141,7 @@ public class Atks : MonoBehaviour
         health -= dmg;
     }
     private void CreateProjectile(GameObject projectilee){
-        Instantiate(projectilee, projCreationPoint.position, orientation.rotation);
+        Quaternion projRotation = Quaternion.Euler(orientation.rotation.eulerAngles.x, orientation.rotation.eulerAngles.y, projectilee.transform.eulerAngles.z);
+        Instantiate(projectilee, projCreationPoint.position, projRotation);
     }
 }
