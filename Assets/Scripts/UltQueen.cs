@@ -7,8 +7,8 @@ public class UltQueen : MonoBehaviour
     public Atks atks;
     public Dash dash;
     public void Ult(){
-        if(atks.health < maxHealth/2) health += maxHealth/2;
-        else health = maxHealth;
+        if(atks.health < atks.maxHealth/2) atks.health += atks.maxHealth/2;
+        else atks.health = atks.maxHealth;
         atks.hpLoss1 = 0;
         atks.hpLoss2 = 0;
         dash.hpLoss3 = 0;

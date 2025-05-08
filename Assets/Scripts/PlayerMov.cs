@@ -14,7 +14,7 @@ public class PlayerMov : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump = true;
-    public bool speedControl;
+    public bool speedControl = true;
 
     [Header("References")]
     public Transform orientation;
