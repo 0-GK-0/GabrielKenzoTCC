@@ -6,8 +6,6 @@ public enum AtkType { one, two, three, four, five, six }
 public class Atks : MonoBehaviour
 {
     [Header("Values")]
-    public int health;
-    public int maxHealth;
     public float currentCooldown;
     public LayerMask canHit;
     private float damageToReceive;
@@ -16,6 +14,7 @@ public class Atks : MonoBehaviour
     public Transform projCreationPoint;
     public Transform orientation;
     public Transform player;
+    private Health healthh;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -51,9 +50,6 @@ public class Atks : MonoBehaviour
     public KeyCode attack6;
     public GameObject projectile6;
 
-    private void Start(){
-        health = maxHealth;
-    }
     private void Update(){
         GetAttack();
         if(currentCooldown > 0) currentCooldown -= Time.deltaTime;
@@ -99,7 +95,7 @@ public class Atks : MonoBehaviour
         {
             enemy.GetComponent<Atks>().Dmg(atkDmg);
         }
-        if(health>1)DamagePercentage(hpLoss);
+        if(healthh.health>1)DamagePercentage(hpLoss);
         currentCooldown = cooldown;
     }
 
@@ -126,19 +122,14 @@ public class Atks : MonoBehaviour
             _ => null
         };
 
-        if(health>1)DamagePercentage(hpLossRanged);
+        if(healthh.health>1)DamagePercentage(hpLossRanged);
         CreateProjectile(projectile);
         currentCooldown = cooldownRanged;
     }
     public void DamagePercentage(float damagePercentage){
         damageToReceive = Mathf.Ceil(damagePercentage/100 * health);
         damageReceived = (int)damageToReceive;
-        Dmg(damageReceived);
-        Debug.Log(health);
-    }
-    
-    public void Dmg(int dmg){
-        health -= dmg;
+        healthh.Dmg(damageReceived);
     }
     private void CreateProjectile(GameObject projectilee){
         Quaternion projRotation = Quaternion.Euler(orientation.rotation.eulerAngles.x, orientation.rotation.eulerAngles.y, projectilee.transform.eulerAngles.z);

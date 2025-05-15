@@ -10,13 +10,21 @@ public class FlyingSlash : MonoBehaviour
     public int dmg;
     GameObject self;
     
+    private void Awake(){
+        self = this.gameObject;
+    }
     private void Start(){
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")||other.gameObject.CompareTag("Background")){
+        if(other.gameObject.CompareTag("Player")){
+            Destroy(self);
+            Health enemy = other.GetComponent<Health>();
+            enemy.Dmg(dmg);
+        }
+        else if(other.gameObject.CompareTag("Background")){
             Destroy(self);
         }
     }

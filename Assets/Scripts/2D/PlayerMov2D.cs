@@ -20,5 +20,6 @@ public class PlayerMov2D : MonoBehaviour
     private void FixedUpdate(){
         Vector3 movement = transform.forward * move * speed;
         transform.Rotate(0, turn * rotationSpeed * Time.deltaTime, 0);
+        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
     }
 }
