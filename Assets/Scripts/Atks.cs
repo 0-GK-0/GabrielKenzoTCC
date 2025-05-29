@@ -14,7 +14,7 @@ public class Atks : MonoBehaviour
     public Transform projCreationPoint;
     public Transform orientation;
     public Transform player;
-    private Health healthh;
+    [SerializeField] private Health healthh;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -93,7 +93,7 @@ public class Atks : MonoBehaviour
         Collider[] hit = Physics.OverlapSphere(atkPoint.position, range, canHit);
         foreach (Collider enemy in hit)
         {
-            enemy.GetComponent<Atks>().Dmg(atkDmg);
+            enemy.GetComponent<Health>().Dmg(atkDmg);
         }
         if(healthh.health>1)DamagePercentage(hpLoss);
         currentCooldown = cooldown;
@@ -127,7 +127,7 @@ public class Atks : MonoBehaviour
         currentCooldown = cooldownRanged;
     }
     public void DamagePercentage(float damagePercentage){
-        damageToReceive = Mathf.Ceil(damagePercentage/100 * health);
+        damageToReceive = Mathf.Ceil(damagePercentage/100 * healthh.health);
         damageReceived = (int)damageToReceive;
         healthh.Dmg(damageReceived);
     }

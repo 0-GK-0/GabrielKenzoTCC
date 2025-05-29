@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlyingSlash : MonoBehaviour
 {
     [Header("Values")]
+    public string playerToHit = "Player1";
     public float speed;
     public Rigidbody rb;
     public int dmg;
@@ -19,7 +20,7 @@ public class FlyingSlash : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")){
+        if(other.gameObject.CompareTag(playerToHit)){
             Destroy(self);
             Health enemy = other.GetComponent<Health>();
             enemy.Dmg(dmg);
