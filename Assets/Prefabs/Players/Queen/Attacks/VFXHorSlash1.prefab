@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7171254132378056633}
   m_Layer: 0
   m_Name: VFXHorSlash1
-  m_TagString: Untagged
+  m_TagString: AttackP1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   speed: 40
   rb: {fileID: 0}
   dmg: 5
+  otherPlayerAtk: AttackP2
 --- !u!54 &4154032007975221418
 Rigidbody:
   m_ObjectHideFlags: 0

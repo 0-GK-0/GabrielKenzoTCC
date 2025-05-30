@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMov2D : MonoBehaviour
+public class PlayerMovv : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     public string horizontalInput = "HorizontalP";

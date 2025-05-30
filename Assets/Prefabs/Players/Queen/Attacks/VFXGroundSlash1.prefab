@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4066791472181298939}
   m_Layer: 0
   m_Name: VFXGroundSlash1
-  m_TagString: Untagged
+  m_TagString: AttackP1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   speed: 40
   rb: {fileID: 0}
   dmg: 5
+  otherPlayerAtk: AttackP2
 --- !u!54 &4976829498528509344
 Rigidbody:
   m_ObjectHideFlags: 0
