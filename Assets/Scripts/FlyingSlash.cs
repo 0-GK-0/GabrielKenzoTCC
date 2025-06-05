@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingSlash : MonoBehaviour
+public class ProjAtk : MonoBehaviour
 {
     [Header("Values")]
     public string playerToHit = "Player1";
@@ -11,13 +11,20 @@ public class FlyingSlash : MonoBehaviour
     public int dmg;
     public string otherPlayerAtk = "AttackP1";
     GameObject self;
+    public float timeToDespawn;
     
-    private void Awake(){
+    private void Awake()
+    {
         self = this.gameObject;
     }
     private void Start(){
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
+    }
+    private void Update()
+    {
+        timeToDespawn -= 1f * Time.deltaTime;
+        if (timeToDespawn <= 0) Destroy(self);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,7 +34,7 @@ public class FlyingSlash : MonoBehaviour
             Health enemy = other.GetComponent<Health>();
             enemy.Dmg(dmg);
         }
-        else if (other.gameObject.CompareTag("Background")||other.gameObject.CompareTag(otherPlayerAtk))
+        else if (other.gameObject.CompareTag("Background") || other.gameObject.CompareTag(otherPlayerAtk))
         {
             Destroy(self);
         }

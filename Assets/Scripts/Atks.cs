@@ -15,6 +15,7 @@ public class Atks : MonoBehaviour
     public Transform orientation;
     public Transform player;
     [SerializeField] private Health healthh;
+    [SerializeField] private PlayerMovv playerMov;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -55,13 +56,15 @@ public class Atks : MonoBehaviour
         if(currentCooldown > 0) currentCooldown -= Time.deltaTime;
     }
 
-    private void GetAttack(){
-        if(currentCooldown > 0) return;
-        if(Input.GetKeyDown(attack1)) MeleeAttack(AtkType.one);
-        if(Input.GetKeyDown(attack2)) MeleeAttack(AtkType.two);
-        if(Input.GetKeyDown(attack4)) RangedAtk(AtkType.four);
-        if(Input.GetKeyDown(attack5)) RangedAtk(AtkType.five);
-        if(Input.GetKeyDown(attack6)) RangedAtk(AtkType.six);
+    private void GetAttack()
+    {
+        if (currentCooldown > 0) return;
+        if (!playerMov.canInput) return;
+        if (Input.GetKeyDown(attack1)) MeleeAttack(AtkType.one);
+        if (Input.GetKeyDown(attack2)) MeleeAttack(AtkType.two);
+        if (Input.GetKeyDown(attack4)) RangedAtk(AtkType.four);
+        if (Input.GetKeyDown(attack5)) RangedAtk(AtkType.five);
+        if (Input.GetKeyDown(attack6)) RangedAtk(AtkType.six);
     }
 
     private void MeleeAttack(AtkType type){

@@ -162,6 +162,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   dmg: 5
   otherPlayerAtk: AttackP2
+  timeToDespawn: 100
 --- !u!54 &4976829498528509344
 Rigidbody:
   m_ObjectHideFlags: 0
