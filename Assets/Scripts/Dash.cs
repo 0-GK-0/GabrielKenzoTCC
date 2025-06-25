@@ -4,32 +4,37 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
-    private Rigidbody rb;
-    public Transform orientation;
+    [Header("Dash")]
+    [SerializeField] private Rigidbody rb;
     public Transform player;
     private float currentCooldown = 0;
     public Atks atks;
-    public PlayerMov playerMov;
+    public PlayerMovv playerMov;
+    public float dashForce;
 
-    [Header("Attack3 - Movement")]
-    public int dmg3;
-    public int hpLoss3;
-    public float cooldown3;
-    public KeyCode attack3;
-
-    private void Start(){
-        rb = GetComponent<Rigidbody>();
+    private void Update()
+    {
+        if (currentCooldown > 0)
+        {
+            currentCooldown -= Time.deltaTime;
+            return;
+        }
+        else if (Input.GetKeyDown(atks.attack3) && currentCooldown <= 0)
+        {
+            GoDash(playerMov.moveDirection);
+        }
     }
-    private void Update(){
-        if (currentCooldown > 0) currentCooldown -= Time.deltaTime;
+    public void GoDash(Vector3 dashDirection)
+    {
+        currentCooldown = atks.cooldown3;
+        atks.DamagePercentage(atks.hpLoss3);
+        if (dashDirection != Vector3.zero)
+        {
+            rb.AddForce(dashDirection * dashForce / 2, ForceMode.Impulse);
+        }
         else
-            if(Input.GetKeyDown(attack3)) GoDash();
-    }
-    public void GoDash(){
-        currentCooldown = cooldown3;
-        atks.DamagePercentage(hpLoss3);
-        playerMov.speedControl = false;
-
-        playerMov.speedControl = true;
+        {
+            rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+        }
     }
 }

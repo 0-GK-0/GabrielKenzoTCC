@@ -17,6 +17,6 @@ public class Health : MonoBehaviour
     {
         health -= dmg;
         healthBar.fillAmount = health / 100;
-        Debug.Log($"{health},{gameObject}");
+        //Debug.Log($"{health},{gameObject}");
     }
 }

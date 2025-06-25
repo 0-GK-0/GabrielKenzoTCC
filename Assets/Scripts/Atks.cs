@@ -16,6 +16,7 @@ public class Atks : MonoBehaviour
     public Transform player;
     [SerializeField] private Health healthh;
     [SerializeField] private PlayerMovv playerMov;
+    [SerializeField] private Dash dash;
 
     [Header("Attack1 - Melee")]
     public int dmg1;
@@ -23,6 +24,7 @@ public class Atks : MonoBehaviour
     public int hpLoss1;
     public float cooldown1;
     public KeyCode attack1;
+    public GameObject projectile1;
 
     [Header("Attack2 - Melee")]
     public int dmg2;
@@ -30,8 +32,14 @@ public class Atks : MonoBehaviour
     public int hpLoss2;
     public float cooldown2;
     public KeyCode attack2;
+    public GameObject projectile2;
 
-    //Attack 3 is in a separate script
+    [Header("Attack3 - Movement")]
+    public int dmg3;
+    public int hpLoss3;
+    public float cooldown3;
+    public KeyCode attack3;
+    public GameObject dashCollider;
 
     [Header("Attack4 - Range")]
     public int hpLoss4;
@@ -60,14 +68,18 @@ public class Atks : MonoBehaviour
     {
         if (currentCooldown > 0) return;
         if (!playerMov.canInput) return;
-        if (Input.GetKeyDown(attack1)) MeleeAttack(AtkType.one);
-        if (Input.GetKeyDown(attack2)) MeleeAttack(AtkType.two);
+        if (Input.GetKeyDown(attack1)) RangedAtk(AtkType.one);
+        if (Input.GetKeyDown(attack2)) RangedAtk(AtkType.two);
+        if (Input.GetKeyDown(attack3))
+        {
+            DamagePercentage(hpLoss3);
+        }
         if (Input.GetKeyDown(attack4)) RangedAtk(AtkType.four);
         if (Input.GetKeyDown(attack5)) RangedAtk(AtkType.five);
         if (Input.GetKeyDown(attack6)) RangedAtk(AtkType.six);
     }
 
-    private void MeleeAttack(AtkType type){
+    /*private void MeleeAttack(AtkType type){
         int atkDmg = type switch
         {
             AtkType.one => dmg1,
@@ -100,18 +112,22 @@ public class Atks : MonoBehaviour
         }
         if(healthh.health>1)DamagePercentage(hpLoss);
         currentCooldown = cooldown;
-    }
+    }*/
 
     private void RangedAtk(AtkType type){
-        float hpLossRanged = type switch
+        float hpLoss = type switch
         {
+            AtkType.one => hpLoss1,
+            AtkType.two => hpLoss2,
             AtkType.four => hpLoss4,
             AtkType.five => hpLoss5,
             AtkType.six => hpLoss6,
             _ => 0f
         };
-        float cooldownRanged = type switch
+        float cooldown = type switch
         {
+            AtkType.one => cooldown1,
+            AtkType.two => cooldown2,
             AtkType.four => cooldown4,
             AtkType.five => cooldown5,
             AtkType.six => cooldown6,
@@ -119,15 +135,17 @@ public class Atks : MonoBehaviour
         };
         GameObject projectile = type switch
         {
+            AtkType.one => projectile1,
+            AtkType.two => projectile2,
             AtkType.four => projectile4,
             AtkType.five => projectile5,
             AtkType.six => projectile6,
             _ => null
         };
 
-        if(healthh.health>1)DamagePercentage(hpLossRanged);
+        if(healthh.health>1)DamagePercentage(hpLoss);
         CreateProjectile(projectile);
-        currentCooldown = cooldownRanged;
+        currentCooldown = cooldown;
     }
     public void DamagePercentage(float damagePercentage){
         damageToReceive = Mathf.Ceil(damagePercentage/100 * healthh.health);

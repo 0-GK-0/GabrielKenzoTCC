@@ -14,6 +14,17 @@ public class PlayerMovv : MonoBehaviour
     [SerializeField] private Win win;
     public string otherPlayerName;
     public GameObject otherPlayerWinCam;
+    public Transform otherPlayer;
+    public Transform orientation;
+    public Vector3 moveDirection;
+    public float jumpForce;
+    public float jumpCooldown;
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool readyToJump = true;
+    bool grounded;
+    [Header("KeyBinds")]
+    public KeyCode jumpKey;
 
     float move;
     float turn;
@@ -24,21 +35,42 @@ public class PlayerMovv : MonoBehaviour
     }
     private void Update()
     {
-        turn = Input.GetAxis(horizontalInput);
-        move = Input.GetAxis(verticalInput);
+        turn = Input.GetAxisRaw(horizontalInput);
+        move = Input.GetAxisRaw(verticalInput);
+        
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        {
+            readyToJump = false;
+            Jump();
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
     private void FixedUpdate()
     {
-        Vector3 movement = transform.forward * move * speed;
+        transform.LookAt(otherPlayer);
+        //Vector3 movement = transform.forward * move * speed;
         if (canInput)
         {
-            transform.Rotate(0, turn * rotationSpeed * Time.deltaTime, 0);
-            rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+            //transform.Rotate(0, turn * rotationSpeed * Time.deltaTime, 0);
+            //rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+            moveDirection = orientation.forward * move + orientation.right * turn;
+
+            rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
         }
         if (healthh.health <= 0)
             {
                 Death();
             }
+    }
+    private void Jump(){
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+    private void ResetJump(){
+        readyToJump = true;
     }
     public void Death()
     {
