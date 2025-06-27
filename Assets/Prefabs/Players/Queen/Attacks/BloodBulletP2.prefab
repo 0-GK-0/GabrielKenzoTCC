@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 6192596477860741057}
   - component: {fileID: 6192596477860741056}
   - component: {fileID: 6192596477860741059}
-  - component: {fileID: 6192596477860741058}
   - component: {fileID: 6192596477860741069}
   - component: {fileID: 6192596477860741068}
   m_Layer: 0
   m_Name: BloodBulletP2
-  m_TagString: Untagged
+  m_TagString: AttackP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,23 +126,6 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6192596477860741058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6192596477860741071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b4d03f708d6804a9da412d0781e57e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerToHit: Player1
-  speed: 3
-  rb: {fileID: 6192596477860741068}
-  dmg: 3
-  otherPlayerAtk: AttackP1
 --- !u!114 &6192596477860741069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +140,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatToLook: {fileID: 0}
   me: {fileID: 6192596477860741062}
+  playerToHit: Player1
+  speed: 7
+  rb: {fileID: 6192596477860741068}
+  dmg: 5
+  otherPlayerAtk: AttackP1
+  timeToDespawn: 7
 --- !u!54 &6192596477860741068
 Rigidbody:
   m_ObjectHideFlags: 0

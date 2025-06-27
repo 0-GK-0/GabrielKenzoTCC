@@ -50,6 +50,13 @@ public class PlayerMovv : MonoBehaviour
     private void FixedUpdate()
     {
         transform.LookAt(otherPlayer);
+        /*Vector3 currentRotation = transform.eulerAngles;
+        currentRotation.x = Mathf.Clamp(currentRotation.x, -40f, 40f);
+        currentRotation.y = Mathf.Clamp(currentRotation.y, -9999, 9999);
+        currentRotation.z = Mathf.Clamp(currentRotation.z, -40f, 40f);
+
+        transform.rotation = Quaternion.Euler(currentRotation);*/
+        
         //Vector3 movement = transform.forward * move * speed;
         if (canInput)
         {

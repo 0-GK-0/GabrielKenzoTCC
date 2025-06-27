@@ -477,7 +477,7 @@ MonoBehaviour:
   attack5: 101
   projectile5: {fileID: 7420544487159443641, guid: 80ebda545864c654a9bc4bface4f99aa, type: 3}
   hpLoss6: 3
-  cooldown6: 1
+  cooldown6: 0.5
   attack6: 114
   projectile6: {fileID: 1892587613208161051, guid: 4a1dd111f724df345b90ada82ed906a1, type: 3}
 --- !u!114 &197040185
@@ -1745,13 +1745,13 @@ MonoBehaviour:
   hpLoss4: 1
   cooldown4: 0.25
   attack4: 279
-  projectile4: {fileID: 1894968641054713267, guid: d9515865e858f6c48bfa010c521cd75c, type: 3}
+  projectile4: {fileID: 1894968641054713267, guid: 0c11a53406497ad44937b2b30553c2b8, type: 3}
   hpLoss5: 2
   cooldown5: 0.25
   attack5: 127
   projectile5: {fileID: 7420544487159443641, guid: dd5b366ac42567943bc04ff2b494697e, type: 3}
   hpLoss6: 3
-  cooldown6: 1
+  cooldown6: 0.5
   attack6: 278
   projectile6: {fileID: 6192596477860741071, guid: 9c7a0ce7ccda140499d0cb9b9b6ee1eb, type: 3}
 --- !u!114 &1268804280

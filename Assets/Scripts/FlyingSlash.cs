@@ -17,7 +17,8 @@ public class ProjAtk : MonoBehaviour
     {
         self = this.gameObject;
     }
-    private void Start(){
+    private void Start()
+    {
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
     }
