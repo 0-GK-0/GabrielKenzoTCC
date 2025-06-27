@@ -25,19 +25,21 @@ public class PlayerMovv : MonoBehaviour
     bool grounded;
     [Header("KeyBinds")]
     public KeyCode jumpKey;
+    bool isDead = false;
 
     float move;
     float turn;
     public bool canInput = true;
 
-    private void Start() {
+    private void Start()
+    {
         canInput = true;
     }
     private void Update()
     {
         turn = Input.GetAxisRaw(horizontalInput);
         move = Input.GetAxisRaw(verticalInput);
-        
+
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
@@ -49,6 +51,8 @@ public class PlayerMovv : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (isDead) return;
+        
         transform.LookAt(otherPlayer);
         /*Vector3 currentRotation = transform.eulerAngles;
         currentRotation.x = Mathf.Clamp(currentRotation.x, -40f, 40f);
@@ -60,34 +64,50 @@ public class PlayerMovv : MonoBehaviour
         //Vector3 movement = transform.forward * move * speed;
         if (canInput)
         {
-            //transform.Rotate(0, turn * rotationSpeed * Time.deltaTime, 0);
-            //rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
             moveDirection = orientation.forward * move + orientation.right * turn;
+            moveDirection = moveDirection.normalized * speed;
+            //transform.Rotate(0, turn * rotationSpeed * Time.deltaTime, 0);
+            rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
 
-            rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
+            //rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
         }
         if (healthh.health <= 0)
-            {
-                Death();
-            }
+        {
+            Death();
+        }
     }
-    private void Jump(){
+    private void Jump()
+    {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
-    private void ResetJump(){
+    private void ResetJump()
+    {
         readyToJump = true;
     }
     public void Death()
     {
-        rb.freezeRotation = false;
-        rb.AddForce(0, 0, 1, ForceMode.Impulse);
+        isDead = true;
+        transform.position = win.losePos.position;
+        otherPlayer.position = win.winPos.position;
         win.Winn(otherPlayerName, otherPlayerWinCam);
+        rb.isKinematic = true;
         canInput = false;
         player2Mov.canInput = false;
     }
-    public void Knockback(float knockback) {
-        
+    public void Knockback(float knockback, Vector3 atkDirection)
+    {
+        canInput = false;
+        rb.velocity = Vector3.zero;
+        Vector3 knockbackDirection = rb.transform.position - atkDirection;
+        rb.AddForce(knockbackDirection.normalized * knockback, ForceMode.Impulse);
+        if(!isDead)StartCoroutine(knockbackCoroutine());
+    }
+
+    private IEnumerator knockbackCoroutine()
+    {
+        yield return new WaitForSeconds(0.20f);
+        canInput = true;
     }
 }

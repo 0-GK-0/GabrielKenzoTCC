@@ -12,6 +12,9 @@ public class Win : MonoBehaviour
     public GameObject playerCamera;
     public TextMeshProUGUI textWin;
 
+    public Transform winPos;
+    public Transform losePos;
+
     public void Winn(string playerName, GameObject playerWinCamera)
     {
         normalCanvas.SetActive(false);

@@ -10,6 +10,7 @@ public class ProjAtk : MonoBehaviour
     public Rigidbody rb;
     public int dmg;
     public string otherPlayerAtk = "AttackP1";
+    public float knockback = 10f;
     GameObject self;
     public float timeToDespawn;
     
@@ -34,6 +35,8 @@ public class ProjAtk : MonoBehaviour
             Destroy(self);
             Health enemy = other.GetComponent<Health>();
             enemy.Dmg(dmg);
+            PlayerMovv player = other.GetComponent<PlayerMovv>();
+            player.Knockback(knockback, rb.transform.position);
         }
         else if (other.gameObject.CompareTag("Background") || other.gameObject.CompareTag(otherPlayerAtk))
         {
