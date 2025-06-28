@@ -28,8 +28,6 @@ public class Atks : MonoBehaviour
     [SerializeField] private Dash dash;
 
     [Header("Attack1 - Melee")]
-    public int dmg1;
-    public int range1;
     public int hpLoss1;
     public float cooldown1;
     public KeyCode attack1;
@@ -37,8 +35,6 @@ public class Atks : MonoBehaviour
     public bool rotateProj1;
 
     [Header("Attack2 - Melee")]
-    public int dmg2;
-    public int range2;
     public int hpLoss2;
     public float cooldown2;
     public KeyCode attack2;
