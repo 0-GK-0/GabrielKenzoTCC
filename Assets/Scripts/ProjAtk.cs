@@ -11,6 +11,7 @@ public class FlyingSlash : MonoBehaviour
     public int dmg;
     public string otherPlayerAtk = "AttackP1";
     public float knockback;
+    public float knockbackUp;
     GameObject self;
     
     private void Awake(){
@@ -28,7 +29,7 @@ public class FlyingSlash : MonoBehaviour
             Health enemy = other.GetComponent<Health>();
             enemy.Dmg(dmg);
             PlayerMovv player = other.GetComponent<PlayerMovv>();
-            player.Knockback(knockback, rb.transform.position);
+            player.Knockback(knockback, knockbackUp,rb.transform.position);
         }
         else if (other.gameObject.CompareTag("Background") || other.gameObject.CompareTag(otherPlayerAtk))
         {

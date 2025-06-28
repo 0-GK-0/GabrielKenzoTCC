@@ -55,9 +55,9 @@ public class PlayerMovv : MonoBehaviour
         
         transform.LookAt(otherPlayer);
         /*Vector3 currentRotation = transform.eulerAngles;
-        currentRotation.x = Mathf.Clamp(currentRotation.x, -40f, 40f);
+        currentRotation.x = Mathf.Clamp(currentRotation.x, -70f, 70f);
         currentRotation.y = Mathf.Clamp(currentRotation.y, -9999, 9999);
-        currentRotation.z = Mathf.Clamp(currentRotation.z, -40f, 40f);
+        currentRotation.z = Mathf.Clamp(currentRotation.z, -70f, 70f);
 
         transform.rotation = Quaternion.Euler(currentRotation);*/
         
@@ -96,13 +96,14 @@ public class PlayerMovv : MonoBehaviour
         canInput = false;
         player2Mov.canInput = false;
     }
-    public void Knockback(float knockback, Vector3 atkDirection)
+    public void Knockback(float knockback, float knockbackUp, Vector3 atkDirection)
     {
         canInput = false;
         rb.velocity = Vector3.zero;
         Vector3 knockbackDirection = rb.transform.position - atkDirection;
         rb.AddForce(knockbackDirection.normalized * knockback, ForceMode.Impulse);
-        if(!isDead)StartCoroutine(knockbackCoroutine());
+        rb.AddForce(0, knockbackUp, 0, ForceMode.Impulse);
+        if (!isDead) StartCoroutine(knockbackCoroutine());
     }
 
     private IEnumerator knockbackCoroutine()

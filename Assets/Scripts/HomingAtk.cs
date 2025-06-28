@@ -15,7 +15,9 @@ public class HomingAtk : MonoBehaviour
     GameObject self;
     public float timeToDespawn;
     float timeToGrow = 0.5f;
-    
+    public float knockback;
+    public float knockbackUp;
+
     private void Awake()
     {
         self = this.gameObject;
@@ -34,14 +36,14 @@ public class HomingAtk : MonoBehaviour
             rb.velocity = new Vector3(0,0,0);
             if (timeToGrow > 0f)
             {
-                me.localScale = new Vector3(me.localScale.x + 4 * Time.deltaTime, me.localScale.y + 4 * Time.deltaTime, me.localScale.z + 4 * Time.deltaTime);
+                me.localScale = new Vector3(me.localScale.x + 7 * Time.deltaTime, me.localScale.y + 7 * Time.deltaTime, me.localScale.z + 7 * Time.deltaTime);
                 timeToGrow -= Time.deltaTime;
             }
             else
             {
                 if (me.localScale.magnitude > 0.1)
                 {
-                    me.localScale = new Vector3(me.localScale.x - Time.deltaTime, me.localScale.y - Time.deltaTime, me.localScale.z - Time.deltaTime);
+                    me.localScale = new Vector3(me.localScale.x - 2*Time.deltaTime, me.localScale.y - 2*Time.deltaTime, me.localScale.z - 2*Time.deltaTime);
                 }
                 else Destroy(self);
             }
@@ -54,6 +56,8 @@ public class HomingAtk : MonoBehaviour
             Destroy(self);
             Health enemy = other.GetComponent<Health>();
             enemy.Dmg(dmg);
+            PlayerMovv player = other.GetComponent<PlayerMovv>();
+            player.Knockback(knockback, knockbackUp, rb.transform.position);
         }
         else if (other.gameObject.CompareTag("Background") || other.gameObject.CompareTag(otherPlayerAtk))
         {

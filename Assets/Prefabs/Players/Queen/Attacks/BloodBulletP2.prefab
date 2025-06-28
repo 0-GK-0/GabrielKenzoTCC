@@ -141,11 +141,13 @@ MonoBehaviour:
   whatToLook: {fileID: 0}
   me: {fileID: 6192596477860741062}
   playerToHit: Player1
-  speed: 7
+  speed: 15
   rb: {fileID: 6192596477860741068}
   dmg: 5
   otherPlayerAtk: AttackP1
   timeToDespawn: 7
+  knockback: 10
+  knockbackUp: 2
 --- !u!54 &6192596477860741068
 Rigidbody:
   m_ObjectHideFlags: 0

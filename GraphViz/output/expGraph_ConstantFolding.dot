@@ -1,0 +1,60 @@
+digraph G {
+node0 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float2 ((1.00, 1.00))
+Count_a
+Count_a"]
+node1 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float2 ((0.00, 0.00))
+Delay_a
+Delay_a"]
+node2 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float3 ((-0.01, 1.40, -0.02))
+bounds_center
+bounds_center"]
+node3 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float3 ((3.00, 3.96, 3.06))
+bounds_size
+bounds_size"]
+node4 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float3 ((0.50, 0.50, 0.50))
+boundsPadding
+boundsPadding"]
+node5 [shape="box" color="cyan" style="filled" label="VFXMeshValue Mesh (44556)
+mesh"]
+node6 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Uint32 (4294967295)
+subMeshMask
+subMeshMask"]
+node7 [shape="box" color="cyan" style="filled" label="VFXMeshValue Mesh (44556)
+mesh"]
+node8 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float3 ((0.00, 90.00, 90.00))
+Angle_a
+Angle_a"]
+node9 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float (1,2)
+Size_a
+Size_a"]
+node10 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float3 ((0.24, 0.00, 0.00))
+Color_b
+Color_b"]
+node11 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float4 ((1.00, 0.00, 0.00, 1.00))
+_Color
+_Color"]
+node12 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float (0,93)
+_VoronoiSpeed_1
+_VoronoiSpeed_1"]
+node13 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float2 ((12.36, 0.00))
+_VoronoiTiling
+_VoronoiTiling"]
+node14 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float2 ((0.00, 0.36))
+_VoronoiSpeed
+_VoronoiSpeed"]
+node15 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float4 ((1.00, 0.00, 0.00, 0.00))
+_NeedleColor
+_NeedleColor"]
+node16 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float (2)
+_VoronoiSpeed_2
+_VoronoiSpeed_2"]
+node17 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float (21,8)
+_VoronoiScale
+_VoronoiScale"]
+node18 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float (0,21)
+_VoronoiPower
+_VoronoiPower"]
+node19 [shape="box" color="steelblue" style="filled" label="VFXValue`1 Float (0)
+_Clip
+_Clip"]
+}

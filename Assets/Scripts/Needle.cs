@@ -2,32 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjAtk : MonoBehaviour
+public class Needle : MonoBehaviour
 {
+    public Transform whatToLook;
+    [SerializeField] Transform me;
     [Header("Values")]
     public string playerToHit = "Player1";
     public float speed;
     public Rigidbody rb;
     public int dmg;
     public string otherPlayerAtk = "AttackP1";
-    public float knockback = 10f;
-    public float knockbackUp;
     GameObject self;
+    public float timeToLaunch;
     public float timeToDespawn;
-    
+    float timeToGrow = 0.5f;
+    public float knockback;
+    public float knockbackUp;
+
     private void Awake()
     {
         self = this.gameObject;
-    }
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * speed;
+        timeToLaunch -= 9f;
+        timeToDespawn = timeToLaunch + 3f;
     }
     private void Update()
     {
-        timeToDespawn -= 1f * Time.deltaTime;
-        if (timeToDespawn <= 0) Destroy(self);
+        if (whatToLook == null) whatToLook = GameObject.FindWithTag(playerToHit).transform;
+        timeToLaunch -= 1f * Time.deltaTime;
+        if (timeToLaunch >= 0)
+        {
+            me.LookAt(whatToLook);
+        }
+        else
+        {
+            rb.velocity = transform.forward * speed;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

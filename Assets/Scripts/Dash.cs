@@ -10,6 +10,7 @@ public class Dash : MonoBehaviour
     private float currentCooldown = 0;
     public Atks atks;
     public PlayerMovv playerMov;
+    public Health healthh;
     public float dashForce;
 
     private void Update()
@@ -27,14 +28,14 @@ public class Dash : MonoBehaviour
     public void GoDash(Vector3 dashDirection)
     {
         currentCooldown = atks.cooldown3;
-        atks.DamagePercentage(atks.hpLoss3);
+        if(healthh.health > 1)atks.DamagePercentage(atks.hpLoss3);
         if (dashDirection != Vector3.zero)
         {
-            rb.AddForce(dashDirection * dashForce / 2, ForceMode.Impulse);
+            rb.AddForce(dashDirection * dashForce, ForceMode.Impulse);
         }
         else
         {
-            rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+            rb.AddForce(transform.forward * dashForce*20, ForceMode.Impulse);
         }
     }
 }

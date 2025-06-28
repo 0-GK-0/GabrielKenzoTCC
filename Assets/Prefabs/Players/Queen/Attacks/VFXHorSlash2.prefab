@@ -164,6 +164,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   dmg: 5
   otherPlayerAtk: AttackP1
+  knockback: 10
+  knockbackUp: 2
   timeToDespawn: 100
 --- !u!54 &4154032007975221418
 Rigidbody:

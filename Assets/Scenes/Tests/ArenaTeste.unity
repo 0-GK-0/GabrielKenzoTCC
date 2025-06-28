@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14162312, g: 0.3253057, b: 0.36611557, a: 1}
+  m_IndirectSpecularColor: {r: 0.14162312, g: 0.3253057, b: 0.3661156, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -420,13 +420,13 @@ MonoBehaviour:
   otherPlayer: {fileID: 1268804278}
   orientation: {fileID: 1353193135}
   moveDirection: {x: 0, y: 0, z: 0}
-  jumpForce: 30
+  jumpForce: 20
   jumpCooldown: 0.25
   playerHeight: 1.6001
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  jumpKey: 32
+  jumpKey: 120
   canInput: 1
 --- !u!114 &197040184
 MonoBehaviour:
@@ -448,6 +448,15 @@ MonoBehaviour:
   projCreationPoint: {fileID: 390333363}
   orientation: {fileID: 197040182}
   player: {fileID: 197040182}
+  timeForSecondKey: 0
+  maxTimeForSecondKey: 0.1
+  pressed1: 0
+  pressed2: 0
+  pressed3: 0
+  pressed4: 0
+  pressed5: 0
+  pressed6: 0
+  hasPressed: 0
   healthh: {fileID: 197040185}
   playerMov: {fileID: 197040183}
   dash: {fileID: 197040186}
@@ -455,31 +464,84 @@ MonoBehaviour:
   range1: 0
   hpLoss1: 0
   cooldown1: 0
-  attack1: 0
+  attack1: 99
   projectile1: {fileID: 0}
+  rotateProj1: 1
   dmg2: 0
   range2: 0
-  hpLoss2: 0
-  cooldown2: 0
-  attack2: 0
-  projectile2: {fileID: 0}
+  hpLoss2: 2
+  cooldown2: 1
+  attack2: 118
+  projectile2: {fileID: 2686056590192637896, guid: 31239b8e4fa2359468352812a403a438, type: 3}
+  rotateProj2: 0
   dmg3: 2
   hpLoss3: 1
-  cooldown3: 2
+  cooldown3: 0.2
   attack3: 102
   dashCollider: {fileID: 0}
   hpLoss4: 1
   cooldown4: 0.25
   attack4: 113
   projectile4: {fileID: 1894968641054713267, guid: fb83d163995348c48979cbf03853bf69, type: 3}
+  rotateProj4: 1
   hpLoss5: 2
   cooldown5: 0.25
   attack5: 101
   projectile5: {fileID: 7420544487159443641, guid: 80ebda545864c654a9bc4bface4f99aa, type: 3}
+  rotateProj5: 1
   hpLoss6: 3
   cooldown6: 0.5
   attack6: 114
   projectile6: {fileID: 1892587613208161051, guid: 4a1dd111f724df345b90ada82ed906a1, type: 3}
+  rotateProj6: 1
+  hpLoss7: 0
+  cooldown7: 0
+  projectile7: {fileID: 0}
+  rotateProj7: 0
+  hpLoss8: 0
+  cooldown8: 0
+  projectile8: {fileID: 0}
+  rotateProj8: 0
+  hpLoss9: 0
+  cooldown9: 0
+  projectile9: {fileID: 0}
+  rotateProj9: 0
+  hpLoss10: 0
+  cooldown10: 0
+  projectile10: {fileID: 0}
+  rotateProj10: 0
+  hpLoss11: 0
+  cooldown11: 0
+  projectile11: {fileID: 0}
+  rotateProj11: 0
+  hpLoss12: 0
+  cooldown12: 0
+  projectile12: {fileID: 0}
+  rotateProj12: 0
+  hpLoss13: 0
+  cooldown13: 0
+  projectile13: {fileID: 0}
+  rotateProj13: 0
+  hpLoss14: 0
+  cooldown14: 0
+  projectile14: {fileID: 0}
+  rotateProj14: 0
+  hpLoss15: 6
+  cooldown15: 0.5
+  projectile15: {fileID: 1892587613208161051, guid: df307e1716a63de4c874a6d6206ce604, type: 3}
+  rotateProj15: 0
+  hpLoss16: 4
+  cooldown16: 0.25
+  projectile16: {fileID: 5078811650957601681, guid: 5533075602bec2841bf695f5e4a8dedf, type: 3}
+  rotateProj16: 1
+  hpLoss17: 8
+  cooldown17: 1
+  projectile17: {fileID: 8236637097267033151, guid: 595362aa825fb3f47b5017f087a8406c, type: 3}
+  rotateProj17: 0
+  hpLoss18: 0
+  cooldown18: 0
+  projectile18: {fileID: 0}
+  rotateProj18: 0
 --- !u!114 &197040185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +573,8 @@ MonoBehaviour:
   player: {fileID: 197040182}
   atks: {fileID: 197040184}
   playerMov: {fileID: 197040183}
-  dashForce: 50
+  healthh: {fileID: 197040185}
+  dashForce: 25
 --- !u!1 &212867129
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270, y: 219.616}
+  m_AnchoredPosition: {x: 664, y: 490}
   m_SizeDelta: {x: 480, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &298970206
@@ -856,7 +919,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 61.69152
+  field of view: 63.910694
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -943,7 +1006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 95, y: 219.616}
+  m_AnchoredPosition: {x: 489, y: 490}
   m_SizeDelta: {x: 450, y: 16.0127}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &576343668
@@ -1017,10 +1080,10 @@ RectTransform:
   m_Father: {fileID: 1025182236}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.03, y: 0.97}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 447.5, y: -251}
+  m_SizeDelta: {x: -795, y: 602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &698397657
 GameObject:
@@ -1500,10 +1563,10 @@ RectTransform:
   m_Father: {fileID: 1025182236}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.97, y: 0.97}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -451, y: -254}
+  m_SizeDelta: {x: 1002, y: 608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1025182232
 GameObject:
@@ -1844,6 +1907,7 @@ GameObject:
   - component: {fileID: 1268804273}
   - component: {fileID: 1268804279}
   - component: {fileID: 1268804280}
+  - component: {fileID: 1268804281}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -1876,13 +1940,13 @@ MonoBehaviour:
   otherPlayer: {fileID: 197040182}
   orientation: {fileID: 1096217424}
   moveDirection: {x: 0, y: 0, z: 0}
-  jumpForce: 30
+  jumpForce: 20
   jumpCooldown: 0.25
-  playerHeight: 1
+  playerHeight: 1.6001
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  jumpKey: 303
+  jumpKey: 109
   canInput: 1
 --- !u!54 &1268804274
 Rigidbody:
@@ -2003,38 +2067,100 @@ MonoBehaviour:
   projCreationPoint: {fileID: 184159356}
   orientation: {fileID: 1268804278}
   player: {fileID: 1268804278}
+  timeForSecondKey: 0.02
+  maxTimeForSecondKey: 0.02
+  pressed1: 0
+  pressed2: 0
+  pressed3: 0
+  pressed4: 0
+  pressed5: 0
+  pressed6: 0
+  hasPressed: 0
   healthh: {fileID: 1268804280}
   playerMov: {fileID: 1268804273}
-  dash: {fileID: 0}
+  dash: {fileID: 1268804281}
   dmg1: 0
   range1: 0
   hpLoss1: 0
   cooldown1: 0
-  attack1: 0
+  attack1: 110
   projectile1: {fileID: 0}
+  rotateProj1: 1
   dmg2: 0
   range2: 0
-  hpLoss2: 0
-  cooldown2: 0
-  attack2: 0
-  projectile2: {fileID: 0}
+  hpLoss2: 2
+  cooldown2: 1
+  attack2: 98
+  projectile2: {fileID: 2686056590192637896, guid: 6995ccd8ff0dbb64a87eac6f46d963f1, type: 3}
+  rotateProj2: 0
   dmg3: 2
   hpLoss3: 1
-  cooldown3: 2
-  attack3: 127
+  cooldown3: 0.2
+  attack3: 104
   dashCollider: {fileID: 0}
   hpLoss4: 1
   cooldown4: 0.25
-  attack4: 279
+  attack4: 111
   projectile4: {fileID: 1894968641054713267, guid: 0c11a53406497ad44937b2b30553c2b8, type: 3}
+  rotateProj4: 1
   hpLoss5: 2
   cooldown5: 0.25
-  attack5: 127
+  attack5: 117
   projectile5: {fileID: 7420544487159443641, guid: dd5b366ac42567943bc04ff2b494697e, type: 3}
+  rotateProj5: 1
   hpLoss6: 3
   cooldown6: 0.5
-  attack6: 278
+  attack6: 121
   projectile6: {fileID: 6192596477860741071, guid: 9c7a0ce7ccda140499d0cb9b9b6ee1eb, type: 3}
+  rotateProj6: 1
+  hpLoss7: 0
+  cooldown7: 0
+  projectile7: {fileID: 0}
+  rotateProj7: 0
+  hpLoss8: 0
+  cooldown8: 0
+  projectile8: {fileID: 0}
+  rotateProj8: 0
+  hpLoss9: 0
+  cooldown9: 0
+  projectile9: {fileID: 0}
+  rotateProj9: 0
+  hpLoss10: 0
+  cooldown10: 0
+  projectile10: {fileID: 0}
+  rotateProj10: 0
+  hpLoss11: 0
+  cooldown11: 0
+  projectile11: {fileID: 0}
+  rotateProj11: 0
+  hpLoss12: 0
+  cooldown12: 0
+  projectile12: {fileID: 0}
+  rotateProj12: 0
+  hpLoss13: 0
+  cooldown13: 0
+  projectile13: {fileID: 0}
+  rotateProj13: 0
+  hpLoss14: 0
+  cooldown14: 0
+  projectile14: {fileID: 0}
+  rotateProj14: 0
+  hpLoss15: 6
+  cooldown15: 0.5
+  projectile15: {fileID: 1892587613208161051, guid: 883fcfae7725c70409da72859d3d6ece, type: 3}
+  rotateProj15: 0
+  hpLoss16: 4
+  cooldown16: 0.25
+  projectile16: {fileID: 2636809799233688544, guid: 48f64e62ada35ba429095b50e4594478, type: 3}
+  rotateProj16: 0
+  hpLoss17: 8
+  cooldown17: 1
+  projectile17: {fileID: 8236637097267033151, guid: 0a89084d729d16d4b882e5c67c0f022a, type: 3}
+  rotateProj17: 0
+  hpLoss18: 0
+  cooldown18: 0
+  projectile18: {fileID: 0}
+  rotateProj18: 0
 --- !u!114 &1268804280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2050,6 +2176,69 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   healthBar: {fileID: 576343668}
+--- !u!114 &1268804281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268804272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a49f941443d8048a8b9204502100a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1268804274}
+  player: {fileID: 1268804278}
+  atks: {fileID: 1268804279}
+  playerMov: {fileID: 1268804273}
+  healthh: {fileID: 1268804280}
+  dashForce: 25
+--- !u!1 &1300903907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300903909}
+  - component: {fileID: 1300903908}
+  m_Layer: 6
+  m_Name: Grounder Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1300903908
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300903907}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 141.52863, y: 22.088211, z: 117.515976}
+  m_Center: {x: -10.737717, y: -12.750437, z: -2.072548}
+--- !u!4 &1300903909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300903907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312124662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,7 +2386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -455.01117, y: 219.616}
+  m_AnchoredPosition: {x: -841, y: 490}
   m_SizeDelta: {x: 450, y: 16.0127}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1418781412
@@ -2341,7 +2530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280.01117, y: 219.616}
+  m_AnchoredPosition: {x: -666, y: 490}
   m_SizeDelta: {x: 480, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1600249567
@@ -2823,7 +3012,7 @@ GameObject:
   - component: {fileID: 9133842435623562889}
   - component: {fileID: 9133842435623562891}
   - component: {fileID: 9133842435623562890}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
