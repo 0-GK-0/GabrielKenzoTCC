@@ -26,6 +26,7 @@ public class Atks : MonoBehaviour
     [SerializeField] private Health healthh;
     [SerializeField] private PlayerMovv playerMov;
     [SerializeField] private Dash dash;
+    [SerializeField] private Transform otherPlayerTransform;
 
     [Header("Attack1 - Melee")]
     public int hpLoss1;
@@ -33,6 +34,7 @@ public class Atks : MonoBehaviour
     public KeyCode attack1;
     public GameObject projectile1;
     public bool rotateProj1;
+    public bool selfCreate1;
 
     [Header("Attack2 - Melee")]
     public int hpLoss2;
@@ -40,6 +42,7 @@ public class Atks : MonoBehaviour
     public KeyCode attack2;
     public GameObject projectile2;
     public bool rotateProj2;
+    public bool selfCreate2;
 
     [Header("Attack3 - Movement")]
     public int dmg3;
@@ -47,6 +50,7 @@ public class Atks : MonoBehaviour
     public float cooldown3;
     public KeyCode attack3;
     public GameObject dashCollider;
+    public bool selfCreate3;
 
     [Header("Attack4 - Range")]
     public int hpLoss4;
@@ -54,6 +58,7 @@ public class Atks : MonoBehaviour
     public KeyCode attack4;
     public GameObject projectile4;
     public bool rotateProj4;
+    public bool selfCreate4;
 
     [Header("Attack5 - Range")]
     public int hpLoss5;
@@ -61,6 +66,7 @@ public class Atks : MonoBehaviour
     public KeyCode attack5;
     public GameObject projectile5;
     public bool rotateProj5;
+    public bool selfCreate5;
 
     [Header("Attack6 - Range")]
     public int hpLoss6;
@@ -68,78 +74,91 @@ public class Atks : MonoBehaviour
     public KeyCode attack6;
     public GameObject projectile6;
     public bool rotateProj6;
+    public bool selfCreate6;
 
     [Header("Attack7 - Combination 1 2")]
     public int hpLoss7;
     public float cooldown7;
     public GameObject projectile7;
     public bool rotateProj7;
+    public bool selfCreate7;
 
     [Header("Attack8 - Combination 1 3")]
     public int hpLoss8;
     public float cooldown8;
     public GameObject projectile8;
     public bool rotateProj8;
+    public bool selfCreate8;
 
     [Header("Attack9 - Combination 1 4")]
     public int hpLoss9;
     public float cooldown9;
     public GameObject projectile9;
     public bool rotateProj9;
+    public bool selfCreate9;
 
     [Header("Attack10 - Combination 1 5")]
     public int hpLoss10;
     public float cooldown10;
     public GameObject projectile10;
     public bool rotateProj10;
+    public bool selfCreate10;
 
     [Header("Attack11 - Combination 1 6")]
     public int hpLoss11;
     public float cooldown11;
     public GameObject projectile11;
     public bool rotateProj11;
+    public bool selfCreate11;
 
     [Header("Attack12 - Combination 2 3")]
     public int hpLoss12;
     public float cooldown12;
     public GameObject projectile12;
     public bool rotateProj12;
+    public bool selfCreate12;
 
     [Header("Attack13 - Combination 2 4")]
     public int hpLoss13;
     public float cooldown13;
     public GameObject projectile13;
     public bool rotateProj13;
+    public bool selfCreate13;
 
     [Header("Attack14 - Combination 2 5")]
     public int hpLoss14;
     public float cooldown14;
     public GameObject projectile14;
     public bool rotateProj14;
+    public bool selfCreate14;
 
     [Header("Attack15 - Combination 2 6")]
     public int hpLoss15;
     public float cooldown15;
     public GameObject projectile15;
     public bool rotateProj15;
+    public bool selfCreate15;
 
     [Header("Attack16 - Combination 4 5")]
     public int hpLoss16;
     public float cooldown16;
     public GameObject projectile16;
     public bool rotateProj16;
+    public bool selfCreate16;
 
     [Header("Attack17 - Combination 4 6")]
     public int hpLoss17;
     public float cooldown17;
     public GameObject projectile17;
     public bool rotateProj17;
+    public bool selfCreate17;
 
     [Header("Attack18 - Combination 5 6")]
     public int hpLoss18;
     public float cooldown18;
     public GameObject projectile18;
     public bool rotateProj18;
+    public bool selfCreate18;
 
     private void Update()
     {
@@ -313,9 +332,30 @@ public class Atks : MonoBehaviour
             AtkType.foursix => rotateProj17,
             AtkType.fivesix => rotateProj18,
         };
+        bool selfCreate = type switch
+        {
+            AtkType.one => selfCreate1,
+            AtkType.two => selfCreate2,
+            AtkType.four => selfCreate4,
+            AtkType.five => selfCreate5,
+            AtkType.six => selfCreate6,
+            AtkType.onetwo => selfCreate7,
+            AtkType.onethree => selfCreate8,
+            AtkType.onefour => selfCreate9,
+            AtkType.onefive => selfCreate10,
+            AtkType.onesix => selfCreate11,
+            AtkType.twothree => selfCreate12,
+            AtkType.twofour => selfCreate13,
+            AtkType.twofive => selfCreate14,
+            AtkType.twosix => selfCreate15,
+            AtkType.fourfive => selfCreate16,
+            AtkType.foursix => selfCreate17,
+            AtkType.fivesix => selfCreate18,
+        };
 
         if (healthh.health > 1) DamagePercentage(hpLoss);
-        CreateProjectile(projectile, rotateProj);
+        if (selfCreate) CreateProjectile(projectile, rotateProj, projCreationPoint);
+        else CreateProjectile(projectile, rotateProj, otherPlayerTransform);
         currentCooldown = cooldown;
     }
     public void DamagePercentage(float damagePercentage) {
@@ -324,17 +364,17 @@ public class Atks : MonoBehaviour
         if (damageReceived >= healthh.health) return;
         healthh.Dmg(damageReceived);
     }
-    private void CreateProjectile(GameObject projectilee, bool rotateProj)
+    private void CreateProjectile(GameObject projectilee, bool rotateProj, Transform creationPoint)
     {
         if (rotateProj)
         {
             Quaternion projRotation = Quaternion.Euler(orientation.rotation.eulerAngles.x, orientation.rotation.eulerAngles.y, projectilee.transform.eulerAngles.z);
-            Instantiate(projectilee, projCreationPoint.position, projRotation);
+            Instantiate(projectilee, creationPoint.position, projRotation);
         }
         else
         {
             Quaternion projRotation = Quaternion.Euler(0, 0, 0);
-            Instantiate(projectilee, projCreationPoint.position, projRotation);
+            Instantiate(projectilee, creationPoint.position, projRotation);
         }
     }
     private IEnumerator atkCoroutine()

@@ -127,7 +127,7 @@ MonoBehaviour:
   whatToLook: {fileID: 0}
   me: {fileID: 3342660930464496882}
   playerToHit: Player2
-  speed: 50
+  speed: 20
   rb: {fileID: 3342660930464496883}
   otherPlayerAtk: AttackP2
   upBeam: {fileID: 2686056590192637896, guid: 31239b8e4fa2359468352812a403a438, type: 3}

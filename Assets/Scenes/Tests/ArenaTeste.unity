@@ -460,84 +460,103 @@ MonoBehaviour:
   healthh: {fileID: 197040185}
   playerMov: {fileID: 197040183}
   dash: {fileID: 197040186}
+  otherPlayerTransform: {fileID: 1268804278}
   hpLoss1: 2
   cooldown1: 0.2
   attack1: 99
   projectile1: {fileID: 4179462906090676832, guid: 046e5ef5155de7f47ad51d8212248ed7, type: 3}
   rotateProj1: 1
+  selfCreate1: 1
   hpLoss2: 2
   cooldown2: 1
   attack2: 118
   projectile2: {fileID: 2686056590192637896, guid: 31239b8e4fa2359468352812a403a438, type: 3}
   rotateProj2: 0
+  selfCreate2: 1
   dmg3: 2
   hpLoss3: 1
   cooldown3: 0.2
   attack3: 102
   dashCollider: {fileID: 0}
+  selfCreate3: 1
   hpLoss4: 1
   cooldown4: 0.25
   attack4: 113
   projectile4: {fileID: 1894968641054713267, guid: fb83d163995348c48979cbf03853bf69, type: 3}
   rotateProj4: 1
+  selfCreate4: 1
   hpLoss5: 2
   cooldown5: 0.25
   attack5: 101
   projectile5: {fileID: 7420544487159443641, guid: 80ebda545864c654a9bc4bface4f99aa, type: 3}
   rotateProj5: 1
+  selfCreate5: 1
   hpLoss6: 3
   cooldown6: 0.5
   attack6: 114
   projectile6: {fileID: 1892587613208161051, guid: 4a1dd111f724df345b90ada82ed906a1, type: 3}
   rotateProj6: 1
+  selfCreate6: 1
   hpLoss7: 0
   cooldown7: 0
   projectile7: {fileID: 0}
   rotateProj7: 0
+  selfCreate7: 0
   hpLoss8: 0
   cooldown8: 0
   projectile8: {fileID: 0}
   rotateProj8: 0
+  selfCreate8: 0
   hpLoss9: 0
   cooldown9: 0
   projectile9: {fileID: 0}
   rotateProj9: 0
+  selfCreate9: 0
   hpLoss10: 0
   cooldown10: 0
   projectile10: {fileID: 0}
   rotateProj10: 0
+  selfCreate10: 0
   hpLoss11: 0
   cooldown11: 0
   projectile11: {fileID: 0}
   rotateProj11: 0
+  selfCreate11: 0
   hpLoss12: 0
   cooldown12: 0
   projectile12: {fileID: 0}
   rotateProj12: 0
+  selfCreate12: 0
   hpLoss13: 5
   cooldown13: 0.5
   projectile13: {fileID: 3342660930464496881, guid: ec77628693ce1d74b8d1b4fbd9323ad2, type: 3}
   rotateProj13: 0
+  selfCreate13: 0
   hpLoss14: 0
   cooldown14: 0
   projectile14: {fileID: 0}
   rotateProj14: 0
+  selfCreate14: 0
   hpLoss15: 6
   cooldown15: 0.5
   projectile15: {fileID: 1892587613208161051, guid: df307e1716a63de4c874a6d6206ce604, type: 3}
   rotateProj15: 0
+  selfCreate15: 1
   hpLoss16: 4
   cooldown16: 0.25
   projectile16: {fileID: 5078811650957601681, guid: 5533075602bec2841bf695f5e4a8dedf, type: 3}
   rotateProj16: 1
+  selfCreate16: 1
   hpLoss17: 8
   cooldown17: 1
   projectile17: {fileID: 8236637097267033151, guid: 595362aa825fb3f47b5017f087a8406c, type: 3}
   rotateProj17: 0
+  selfCreate17: 1
   hpLoss18: 0
   cooldown18: 0
   projectile18: {fileID: 0}
   rotateProj18: 0
+  selfCreate18: 0
 --- !u!114 &197040185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2075,84 +2094,103 @@ MonoBehaviour:
   healthh: {fileID: 1268804280}
   playerMov: {fileID: 1268804273}
   dash: {fileID: 1268804281}
+  otherPlayerTransform: {fileID: 197040182}
   hpLoss1: 2
   cooldown1: 0.2
   attack1: 110
   projectile1: {fileID: 4179462906090676832, guid: dafeba65f350d304f898501de10e1c43, type: 3}
   rotateProj1: 1
+  selfCreate1: 1
   hpLoss2: 2
   cooldown2: 1
   attack2: 98
   projectile2: {fileID: 2686056590192637896, guid: 6995ccd8ff0dbb64a87eac6f46d963f1, type: 3}
   rotateProj2: 0
+  selfCreate2: 1
   dmg3: 2
   hpLoss3: 1
   cooldown3: 0.2
   attack3: 104
   dashCollider: {fileID: 0}
+  selfCreate3: 1
   hpLoss4: 1
   cooldown4: 0.25
   attack4: 111
   projectile4: {fileID: 1894968641054713267, guid: 0c11a53406497ad44937b2b30553c2b8, type: 3}
   rotateProj4: 1
+  selfCreate4: 1
   hpLoss5: 2
   cooldown5: 0.25
   attack5: 117
   projectile5: {fileID: 7420544487159443641, guid: dd5b366ac42567943bc04ff2b494697e, type: 3}
   rotateProj5: 1
+  selfCreate5: 1
   hpLoss6: 3
   cooldown6: 0.5
   attack6: 121
   projectile6: {fileID: 6192596477860741071, guid: 9c7a0ce7ccda140499d0cb9b9b6ee1eb, type: 3}
   rotateProj6: 1
+  selfCreate6: 1
   hpLoss7: 0
   cooldown7: 0
   projectile7: {fileID: 0}
   rotateProj7: 0
+  selfCreate7: 0
   hpLoss8: 0
   cooldown8: 0
   projectile8: {fileID: 0}
   rotateProj8: 0
+  selfCreate8: 0
   hpLoss9: 0
   cooldown9: 0
   projectile9: {fileID: 0}
   rotateProj9: 0
+  selfCreate9: 0
   hpLoss10: 0
   cooldown10: 0
   projectile10: {fileID: 0}
   rotateProj10: 0
+  selfCreate10: 0
   hpLoss11: 0
   cooldown11: 0
   projectile11: {fileID: 0}
   rotateProj11: 0
+  selfCreate11: 0
   hpLoss12: 0
   cooldown12: 0
   projectile12: {fileID: 0}
   rotateProj12: 0
-  hpLoss13: 0
-  cooldown13: 0
+  selfCreate12: 0
+  hpLoss13: 5
+  cooldown13: 0.5
   projectile13: {fileID: 3342660930464496881, guid: 3404a96745867e34fb3efc6bddb2e790, type: 3}
   rotateProj13: 0
+  selfCreate13: 0
   hpLoss14: 0
   cooldown14: 0
   projectile14: {fileID: 0}
   rotateProj14: 0
+  selfCreate14: 0
   hpLoss15: 6
   cooldown15: 0.5
   projectile15: {fileID: 1892587613208161051, guid: 883fcfae7725c70409da72859d3d6ece, type: 3}
   rotateProj15: 0
+  selfCreate15: 1
   hpLoss16: 4
   cooldown16: 0.25
   projectile16: {fileID: 2636809799233688544, guid: 48f64e62ada35ba429095b50e4594478, type: 3}
   rotateProj16: 0
+  selfCreate16: 1
   hpLoss17: 8
   cooldown17: 1
   projectile17: {fileID: 8236637097267033151, guid: 0a89084d729d16d4b882e5c67c0f022a, type: 3}
   rotateProj17: 0
+  selfCreate17: 1
   hpLoss18: 0
   cooldown18: 0
   projectile18: {fileID: 0}
   rotateProj18: 0
+  selfCreate18: 0
 --- !u!114 &1268804280
 MonoBehaviour:
   m_ObjectHideFlags: 0
