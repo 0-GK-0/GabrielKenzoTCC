@@ -540,7 +540,7 @@ MonoBehaviour:
   hpLoss15: 6
   cooldown15: 0.5
   projectile15: {fileID: 1892587613208161051, guid: df307e1716a63de4c874a6d6206ce604, type: 3}
-  rotateProj15: 0
+  rotateProj15: 1
   selfCreate15: 1
   hpLoss16: 4
   cooldown16: 0.25
@@ -550,13 +550,13 @@ MonoBehaviour:
   hpLoss17: 8
   cooldown17: 1
   projectile17: {fileID: 8236637097267033151, guid: 595362aa825fb3f47b5017f087a8406c, type: 3}
-  rotateProj17: 0
+  rotateProj17: 1
   selfCreate17: 1
-  hpLoss18: 0
-  cooldown18: 0
-  projectile18: {fileID: 0}
-  rotateProj18: 0
-  selfCreate18: 0
+  hpLoss18: 3
+  cooldown18: 1
+  projectile18: {fileID: 8141188629892329274, guid: 0cd9fb537a13ee14a8407f5be575c4cd, type: 3}
+  rotateProj18: 1
+  selfCreate18: 1
 --- !u!114 &197040185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,23 +2174,23 @@ MonoBehaviour:
   hpLoss15: 6
   cooldown15: 0.5
   projectile15: {fileID: 1892587613208161051, guid: 883fcfae7725c70409da72859d3d6ece, type: 3}
-  rotateProj15: 0
+  rotateProj15: 1
   selfCreate15: 1
   hpLoss16: 4
   cooldown16: 0.25
   projectile16: {fileID: 2636809799233688544, guid: 48f64e62ada35ba429095b50e4594478, type: 3}
-  rotateProj16: 0
+  rotateProj16: 1
   selfCreate16: 1
   hpLoss17: 8
   cooldown17: 1
   projectile17: {fileID: 8236637097267033151, guid: 0a89084d729d16d4b882e5c67c0f022a, type: 3}
-  rotateProj17: 0
+  rotateProj17: 1
   selfCreate17: 1
-  hpLoss18: 0
-  cooldown18: 0
-  projectile18: {fileID: 0}
-  rotateProj18: 0
-  selfCreate18: 0
+  hpLoss18: 3
+  cooldown18: 1
+  projectile18: {fileID: 8141188629892329274, guid: 92bf99e166118ad48833497683786b5e, type: 3}
+  rotateProj18: 1
+  selfCreate18: 1
 --- !u!114 &1268804280
 MonoBehaviour:
   m_ObjectHideFlags: 0

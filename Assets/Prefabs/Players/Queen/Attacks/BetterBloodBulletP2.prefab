@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1045733945}
   m_Layer: 0
   m_Name: BetterBloodBulletP2
-  m_TagString: AttackP1
+  m_TagString: AttackP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Rotate : MonoBehaviour
 {
     [Header("Values")]
-    public float rotationSpeed;
+    public float rotationSpeedZ;
+    public float rotationSpeedY;
+    public float rotationSpeedX;
     public float despawnTime = 5f;
     public Transform me;
     GameObject self;
@@ -18,6 +20,6 @@ public class Rotate : MonoBehaviour
     {
         despawnTime -= Time.deltaTime;
         if (despawnTime < 0) Destroy(self);
-        me.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+        me.Rotate(rotationSpeedX * Time.deltaTime, rotationSpeedY * Time.deltaTime, rotationSpeedZ * Time.deltaTime);
     }
 }
