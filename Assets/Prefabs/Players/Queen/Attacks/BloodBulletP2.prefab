@@ -141,7 +141,7 @@ MonoBehaviour:
   whatToLook: {fileID: 0}
   me: {fileID: 6192596477860741062}
   playerToHit: Player1
-  speed: 15
+  speed: 13
   rb: {fileID: 6192596477860741068}
   dmg: 5
   otherPlayerAtk: AttackP1

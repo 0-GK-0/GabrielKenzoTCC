@@ -174,6 +174,7 @@ public class Atks : MonoBehaviour
 
     private void GetAttack()
     {
+        if (Input.GetKeyDown(KeyCode.T)) StartCoroutine(atkCoroutine());
         if (currentCooldown > 0) return;
         if (!playerMov.canInput) return;
         if (Input.GetKeyDown(attack1))
